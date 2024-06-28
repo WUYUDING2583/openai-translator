@@ -61,7 +61,12 @@ class TableContent(Content):
             table_data = [
                 row.strip().split() for row in translation.strip().split("\n")
             ]
-            # if len(table_data[0])>len(table_data[-1]):
+            if len(table_data[0]) > len(table_data[-1]):
+                # if title columns more than value column, that mean cell 'Price (USD)' has been split into two cells
+                # combine them back into one cell
+                title = table_data[0]
+                title[-3] = f"{title[-3]} {title[-2]}"
+                title.pop(-2)
 
             LOG.debug(table_data)
             # Create a DataFrame from the table_data

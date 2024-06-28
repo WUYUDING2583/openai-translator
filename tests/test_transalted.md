@@ -1,21 +1,21 @@
-测试数据
-这个数据集包含了由OpenAI的ChatGPT提供的两个测试样本，这是一个人工智能语言模型。
-这些样本包括一个Markdown表格和一段英文文本，可以用来测试支持文本和表格格式的英译中翻译软件。
-文本测试
-快速的棕色狐狸跳过懒狗。这个句子包含了英语字母表中的每一个字母。常用来测试字体、键盘和其他文本相关工具。除了英语，还有许多其他语言的包含每个字母的句子。由于语言的独特特点，有些句子更难构造。
-表格测试
+Datos de prueba
+Este conjunto de datos contiene dos muestras de prueba proporcionadas por ChatGPT, un modelo de lenguaje de inteligencia artificial de OpenAI.
+Estas muestras incluyen una tabla en markdown y un pasaje de texto en inglés, que se pueden utilizar para probar un software de traducción de inglés a chino que admita tanto formatos de texto como de tabla.
+Prueba de texto
+El rápido zorro marrón salta sobre el perro perezoso. Este pangrama contiene cada letra del alfabeto inglés al menos una vez. Los pangramas se utilizan con frecuencia para probar fuentes, teclados y otras herramientas relacionadas con el texto. Además del inglés, existen pangramas en muchos otros idiomas. Algunos pangramas son más difíciles de construir debido a las características únicas del idioma.
+Prueba de tabla
 
-| | | 水果 | | | 颜色 | | | 价格（美元） | | |
+| | | Fruta | | | Color | | | Precio (USD) | | |
 | --------------------- |
-| |------|------|-----------| | None | None | None | None | None | None |
-| | | 苹果 | | | 红色 | | | 1.20 | | |
-| | | 香蕉 | | | 黄色 | | | 0.50 | | |
-| | | 橙子 | | | 橙色 | | | 0.80 | | |
-| | | 草莓 | | | 红色 | | | 2.50 | | |
-| | | 蓝莓 | | | 蓝色 | | | 3.00 | | |
-| | | 猕猴桃 | | | 绿色 | | | 1.00 | | |
-| | | 芒果 | | | 橙色 | | | 1.50 | | |
-| | | 葡萄 | | | 紫色 | | | 2.00 | | |
+| |-------------|----------|--------------| | None | None | None | None | None | None |
+| | | Apple | | | Rojo | | | 1.20 | | |
+| | | Banana | | | Amarillo | | | 0.50 | | |
+| | | Orange | | | Naranja | | | 0.80 | | |
+| | | Strawberry | | | Rojo | | | 2.50 | | |
+| | | Blueberry | | | Azul | | | 3.00 | | |
+| | | Kiwi | | | Verde | | | 1.00 | | |
+| | | Mango | | | Naranja | | | 1.50 | | |
+| | | Grape | | | Morado | | | 2.00 | | |
 
 ---
 
