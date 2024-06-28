@@ -53,22 +53,22 @@ class TableContent(Content):
         try:
             if not isinstance(translation, str):
                 raise ValueError(
-                    f"Invalid translation type. Expected str, but got {type(translation)}."
+                    f"Invalid translation type. Expected str, but got {type(translation)}"
                 )
 
-            LOG.debug(f"[translation]\n{translation}")
-            # convert string to a list of lists
+            LOG.debug(translation)
+            # Convert the string to a list of lists
             table_data = [
                 row.strip().split() for row in translation.strip().split("\n")
             ]
-            LOG.debug(f"[table_data]\n{table_data}")
-            # create a DataFrame from the table_data
-            translated_df = pd.DataFrame(table_data[2:], columns=table_data[0])
+            LOG.debug(table_data)
+            # Create a DataFrame from the table_data
+            translated_df = pd.DataFrame(table_data[1:], columns=table_data[0])
             LOG.debug(translated_df)
             self.translation = translated_df
             self.status = status
         except Exception as e:
-            LOG.error(f"An error occurred during table translation: {e}.")
+            LOG.error(f"An error occurred during table translation: {e}")
             self.translation = None
             self.status = False
 

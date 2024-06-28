@@ -10,7 +10,7 @@ class PDFParser:
     def __init__(self):
         pass
 
-    def parser_pdf(self, pdf_file_path: str, pages: Optional[int] = None) -> Book:
+    def parse_pdf(self, pdf_file_path: str, pages: Optional[int] = None) -> Book:
         book = Book(pdf_file_path)
 
         with pdfplumber.open(pdf_file_path) as pdf:

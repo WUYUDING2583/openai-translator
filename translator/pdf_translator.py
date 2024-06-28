@@ -2,7 +2,7 @@ from typing import Optional
 from model import Model
 from translator.pdf_parser import PDFParser
 from translator.writer import Writer
-from utils.logger import LOG
+from utils import LOG
 
 
 class PDFTranslator:
@@ -15,20 +15,20 @@ class PDFTranslator:
         self,
         pdf_file_path: str,
         file_format: str = "PDF",
-        target_language: str = "Chinese",
+        target_language: str = "中文",
         output_file_path: str = None,
         pages: Optional[int] = None,
     ):
-        self.book = self.pdf_parser.parser_pdf(pdf_file_path, pages)
+        self.book = self.pdf_parser.parse_pdf(pdf_file_path, pages)
 
         for page_idx, page in enumerate(self.book.pages):
             for content_idx, content in enumerate(page.contents):
                 prompt = self.model.translate_prompt(content, target_language)
-                LOG.debug(f"[prompt]\n{prompt}")
+                LOG.debug(prompt)
                 translation, status = self.model.make_request(prompt)
-                LOG.info(f"[translation]\n{translation}")
+                LOG.info(translation)
 
-                # update the content in self.book.pages directly
+                # Update the content in self.book.pages directly
                 self.book.pages[page_idx].contents[content_idx].set_translation(
                     translation, status
                 )

@@ -31,4 +31,11 @@ if __name__ == "__main__":
     )
 
     translator = PDFTranslator(model)
-    translator.translate_pdf(pdf_file_path, file_format)
+    target_language = (
+        args.target_language
+        if args.target_language
+        else config["common"]["target_language"]
+    )
+    translator.translate_pdf(
+        pdf_file_path, file_format, target_language=target_language
+    )

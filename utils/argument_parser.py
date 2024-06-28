@@ -41,6 +41,11 @@ class ArgumentParser:
             type=str,
             help="The file format of translated book. Now supporting PDF and Makrdown.",
         )
+        self.parser.add_argument(
+            "--target_language",
+            type=str,
+            help="The target language that want to translate.",
+        )
 
     def parse_arguments(self):
         args = self.parser.parse_args()
