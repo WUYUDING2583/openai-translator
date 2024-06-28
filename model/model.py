@@ -6,7 +6,7 @@ class Model:
         return f"Translate to {target_language}: {text}"
 
     def make_table_prompt(self, table: str, target_language: str) -> str:
-        return f"Translate all texts to {target_language}, keep spacing (spaces, delimiters), return translated data in table form: \n{table}"
+        return f"This is a string in an array, translate all texts to {target_language}, keep spacing (spaces, delimiters), return translated data in table form: \n{table}"
 
     def translate_prompt(self, content, target_language: str) -> str:
         if content.content_type == ContentType.TEXT:

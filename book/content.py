@@ -61,6 +61,8 @@ class TableContent(Content):
             table_data = [
                 row.strip().split() for row in translation.strip().split("\n")
             ]
+            # if len(table_data[0])>len(table_data[-1]):
+
             LOG.debug(table_data)
             # Create a DataFrame from the table_data
             translated_df = pd.DataFrame(table_data[1:], columns=table_data[0])
