@@ -17,3 +17,9 @@ python app.py
 ```
 
 After running server, it will be hosted on `http://127.0.0.1:5000`
+
+# Call translate API
+
+```bash
+curl -X POST "http://127.0.0.1:5000/translate" -F "file=@/your/file/path" -F "openaiModel=gpt-3.5-turbo" -F "targetLanguage=中文"
+```
