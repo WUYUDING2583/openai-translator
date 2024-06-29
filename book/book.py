@@ -2,8 +2,8 @@ from book.page import Page
 
 
 class Book:
-    def __init__(self, pdf_file_path):
-        self.pdf_file_path = pdf_file_path
+    def __init__(self, filename: str):
+        self.filename = filename
         self.pages = []
 
     def add_page(self, page: Page):

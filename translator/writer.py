@@ -12,26 +12,25 @@ from reportlab.platypus import (
     PageBreak,
 )
 from reportlab.lib import colors, pagesizes, units
+import io
 
 
 class Writer:
     def __init__(self):
         pass
 
-    def save_translated_book(
-        self, book: Book, output_file_path: str = None, file_format: str = "PDF"
-    ):
+    def save_translated_book(self, book: Book, file_format: str = "PDF"):
         if file_format.lower() == "pdf":
-            self._save_translated_book_pdf(book, output_file_path)
+            self.save_translated_book_pdf(book)
         elif file_format.lower() == "markdown":
-            self._save_translated_book_markdown(book, output_file_path)
+            self._save_translated_book_markdown(book)
 
-    def _save_translated_book_pdf(self, book: Book, output_file_path: str = None):
-        if output_file_path is None:
-            output_file_path = book.pdf_file_path.replace(".pdf", "_translated.pdf")
+    def save_translated_book_pdf(
+        self,
+        book: Book,
+    ):
 
-        LOG.info(f"pdf_file_path: {book.pdf_file_path}")
-        LOG.info(f"Start translation: {output_file_path}")
+        LOG.info(f"filename: {book.filename}")
 
         # register Chinese font
         font_path = "../fonts/simsun.ttc"
@@ -43,7 +42,8 @@ class Writer:
         )
 
         # create a PDF document
-        doc = SimpleDocTemplate(output_file_path, pagesize=pagesizes.letter)
+        buffer = io.BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=pagesizes.letter)
         story = []
 
         # iterate over the pages and contents
@@ -82,7 +82,9 @@ class Writer:
 
         # save translated book as a new PDF file
         doc.build(story)
-        LOG.info(f"Translation complete: {output_file_path}")
+        LOG.info(f"Translation complete:")
+        buffer.seek(0)
+        return buffer
 
     def _save_translated_book_markdown(self, book: Book, output_file_path: str = None):
         if output_file_path is None:

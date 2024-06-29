@@ -10,10 +10,10 @@ class PDFParser:
     def __init__(self):
         pass
 
-    def parse_pdf(self, pdf_file_path: str, pages: Optional[int] = None) -> Book:
-        book = Book(pdf_file_path)
+    def parse_pdf(self, file, pages: Optional[int] = None) -> Book:
+        book = Book(file.filename)
 
-        with pdfplumber.open(pdf_file_path) as pdf:
+        with pdfplumber.open(file) as pdf:
             if pages is not None and pages > len(pdf.pages):
                 raise PageOutOfRangeException(len(pdf.pages), pages)
 

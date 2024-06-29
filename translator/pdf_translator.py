@@ -13,13 +13,11 @@ class PDFTranslator:
 
     def translate_pdf(
         self,
-        pdf_file_path: str,
-        file_format: str = "PDF",
-        target_language: str = "中文",
-        output_file_path: str = None,
+        file,
+        target_language,
         pages: Optional[int] = None,
     ):
-        self.book = self.pdf_parser.parse_pdf(pdf_file_path, pages)
+        self.book = self.pdf_parser.parse_pdf(file, pages)
 
         for page_idx, page in enumerate(self.book.pages):
             for content_idx, content in enumerate(page.contents):
@@ -33,4 +31,6 @@ class PDFTranslator:
                     translation, status
                 )
 
-        self.writer.save_translated_book(self.book, output_file_path, file_format)
+        # return self.book
+
+        return self.writer.save_translated_book_pdf(self.book)
